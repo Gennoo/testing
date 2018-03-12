@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+  <img
+    style="margin-left: 15%; margin-top: 9%"
+    width="70%"
+    src="images/pizza_sprite_1.png"
+    id="pizza"
+  >
+</body>
+
+<script>
+var seconds = Math.round((new Date()).getTime() / 1000);
+function run_clock(seconds){
+	var pizza = document.getElementById('pizza');
+  function update_clock(){
+		var t = Math.round((new Date()).getTime() / 1000);
+		if(t - seconds > 21 || t - seconds < 2){ return;}
+    pizza.src=`images/pizza_sprite_${t-seconds}.png`
+	}
+	update_clock();
+	var timeinterval = setInterval(update_clock, 1000);
+}
+run_clock(seconds);
+</script>
+</body>
+</html>
